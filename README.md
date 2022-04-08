@@ -1,4 +1,4 @@
-# README
+# Blogg
 
 This is a simple blog. The purpose of creating this is to familiarize myself with 
 Ruby on Rails. Focusing on the back-end stack; CRUD operations, etc.
