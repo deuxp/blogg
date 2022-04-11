@@ -11,11 +11,14 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # @article = Article.new(article_params) # uses the private function
-    @article = Article.new(params.require(:article).permit(:title, :text))
+    @article = Article.new(article_params)
 
-    @article.save
-    redirect_to @article
+    # validation handling on .save (which also returns truthy value)
+    if @article.save
+      redirect_to @article
+    else
+      render 'new'
+    end
   end
 
 
