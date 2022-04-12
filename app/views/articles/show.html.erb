@@ -2,8 +2,7 @@
   <p>
     <strong>
       Title:
-    </strong>
-    <%= @article.title %>
+    </strong> <%= @article.title %>
   </p>
 
   <p>
@@ -13,6 +12,36 @@
     <%= @article.text %>
   </p>
 </div>
+
+<h2>Comments</h2>
+<div style='border:dotted blue;border-radius:10px;padding: 1rem;'>
+  <% @article.comments.each do |comment| %>
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.commenter %>
+    </p>
+
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
+  <% end %>
+</div>
+
+<h2>Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_article_path %> | 
 <%= link_to 'Index', articles_path %>
