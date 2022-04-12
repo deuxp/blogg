@@ -15,17 +15,7 @@
 
 <h2>Comments</h2>
 <div style='border:dotted blue;border-radius:10px;padding: 1rem;'>
-  <% @article.comments.each do |comment| %>
-    <p>
-      <strong>Commenter:</strong>
-      <%= comment.commenter %>
-    </p>
-
-    <p>
-      <strong>Comment:</strong>
-      <%= comment.body %>
-    </p>
-  <% end %>
+  <%= render @article.comments %>
 </div>
 
 <h2>Add a comment:</h2>
